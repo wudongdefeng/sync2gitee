@@ -1,6 +1,11 @@
 on:
+  schedule:
+    - cron: '1 0,15 * * *'
+  workflow_dispatch:
+  watch:
+    types: started
   push:
-    branches: master
+    branches: [ master ]
   schedule:
     - cron: '0 17 * * *'
 name: Mirror the Github repos to Gitee
