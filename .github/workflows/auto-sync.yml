@@ -1,11 +1,11 @@
 name: Mirror the Github repos to Gitee
 on:
    workflow_dispatch:
-  watch:
+   watch:
     types: started
-  push:
+    push:
     branches: [ master ]
-  schedule:
+   schedule:
     - cron: '0 17 * * *'
 jobs:
   run:
