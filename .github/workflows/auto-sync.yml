@@ -1,3 +1,4 @@
+name: Mirror the Github repos to Gitee
 on:
    workflow_dispatch:
   watch:
@@ -6,7 +7,6 @@ on:
     branches: [ master ]
   schedule:
     - cron: '0 17 * * *'
-name: Mirror the Github repos to Gitee
 jobs:
   run:
     name: Sync-GitHub-to-Gitee
