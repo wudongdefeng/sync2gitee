@@ -12,8 +12,8 @@ jobs:
     - name: Mirror the Github repos to Gitee.
       uses: Yikun/hub-mirror-action@v0.10
       with:
-        src: github/likebeta
-        dst: gitee/likebeta
+        src: github/wudongdefeng
+        dst: gitee/wudongdefeng
         dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
         dst_token: ${{ secrets.GITEE_TOKEN }}
         account_type: user
