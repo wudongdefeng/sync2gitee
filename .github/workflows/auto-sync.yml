@@ -19,5 +19,6 @@ jobs:
         dst: gitee/wudongdefeng
         dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
         dst_token: ${{ secrets.GITEE_TOKEN }}
+        static_list: "jd_scripts"
         account_type: user
         force_update: true
