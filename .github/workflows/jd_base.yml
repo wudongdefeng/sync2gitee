@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   run:
-    name: jd_base
+    name: Sync-Gitee-to-Github
     runs-on: ubuntu-latest
     steps:
     - name: Mirror the Github repos to Gitee.
