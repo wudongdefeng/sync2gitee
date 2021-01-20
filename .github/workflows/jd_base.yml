@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: sync to github
+name: jd_base
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   run:
-    name: Sync-Gitee-to-Github
+    name: jd_base
     runs-on: ubuntu-latest
     steps:
     - name: Mirror the Github repos to Gitee.
