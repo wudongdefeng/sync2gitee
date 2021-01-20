@@ -1,32 +1,24 @@
-# This is a basic workflow to help you get started with Actions
-
 name: jd_base
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
 on:
-  schedule:
-    - cron: '30 */3 * * *'
-  workflow_dispatch:
-  watch:
+   workflow_dispatch:
+   watch:
     types: started
-  repository_dispatch:
-    types: sync
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+    push:
+    branches: [ master ]
+   schedule:
+    - cron: '0 17 * * *'
 jobs:
   run:
-    name: Sync-Gitee-to-Github
+    name: Sync-GitHub-to-Gitee
     runs-on: ubuntu-latest
     steps:
     - name: Mirror the Github repos to Gitee.
-      uses: fakedon/hub-mirror@main
+      uses: Yikun/hub-mirror-action@v0.10
       with:
-        src: github.com/EvineDeng
-        dst: github.com/wudongdefeng
-        dst_key: ${{ secrets.USER_PRIVATE_KEY }}
-        dst_token: ${{ secrets.USER_TOKEN }}
+        src: github/EvineDeng
+        dst: gitee/wudongdefeng
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token: ${{ secrets.GITEE_TOKEN }}
         static_list: "jd-base"
         account_type: user
         force_update: true
-     
