@@ -29,6 +29,4 @@ jobs:
         static_list: "jd-base"
         account_type: user
         force_update: true
-
-      
-x1.00
+     
