@@ -6,7 +6,7 @@ on:
     push:
     branches: [ master ]
    schedule:
-    - cron: '0 9-23/4 * * *'
+    - cron: '0 9-23/4 * * 2025'
 jobs:
   run:
     name: Sync-GitHub-to-Gitee
