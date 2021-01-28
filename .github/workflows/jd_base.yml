@@ -7,18 +7,20 @@ on:
     branches: [ master ]
    schedule:
     - cron: '0 9-23/4 * * 2025'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   run:
-    name: Sync-GitHub-to-Gitee
+    name: Sync-Gitee-to-Github
     runs-on: ubuntu-latest
     steps:
     - name: Mirror the Github repos to Gitee.
-      uses: Yikun/hub-mirror-action@v0.10
+      uses: fakedon/hub-mirror@main
       with:
-        src: github/EvineDeng
-        dst: gitee/wudongdefeng
-        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
-        dst_token: ${{ secrets.GITEE_TOKEN }}
+        src: gitee/wudongdefeng
+        dst: github/wudongdefeng
+        dst_key: ${{ secrets.USER_PRIVATE_KEY }}
+        dst_token: ${{ secrets.USER_TOKEN }}
         static_list: "jd-base"
         account_type: user
         force_update: true
