@@ -22,7 +22,7 @@ jobs:
     - name: Mirror the Github repos to Gitee.
       uses: fakedon/hub-mirror@main
       with:
-        src: gitee/lxk0301
+        src: gitee/wudongdefeng
         dst: github/wudongdefeng
         dst_key: ${{ secrets.USER_PRIVATE_KEY }}
         dst_token: ${{ secrets.USER_TOKEN }}
