@@ -1,0 +1,26 @@
+name: jd_base
+on:
+   workflow_dispatch:
+   watch:
+    types: started
+    push:
+    branches: [ master ]
+   schedule:
+    - cron: '0 1-15/4 * * *'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  run:
+    name: Sync-Gitee-to-Github
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mirror the Github repos to Gitee.
+      uses: fakedon/hub-mirror@main
+      with:
+        src: gitee/lxk0301
+        dst: github/wudongdefeng
+        dst_key: ${{ secrets.LXK_PRIVATE_KEY }}
+        dst_token: ${{ secrets.USER_TOKEN }}
+        static_list: "jd_scripts"
+        account_type: user
+        force_update: true
