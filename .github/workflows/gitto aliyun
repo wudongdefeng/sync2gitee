@@ -1,0 +1,24 @@
+name: Mirror the Github repos to ALIYUN
+on:
+   workflow_dispatch:
+   watch:
+    types: started
+    push:
+    branches: [ master ]
+   schedule:
+    - cron: '0 1-14/4 * * *'
+jobs:
+  run:
+    name: Sync-GitHub-to-ALIYUN
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mirror the Github repos to ALIYUN.
+      uses: Yikun/hub-mirror-action@v0.10
+      with:
+        src: github/wudongdefeng
+        dst: code.aliyun/wudongdefeng
+        dst_key: ${{ secrets.ALIYUN_PRIVATE_KEY }}
+        dst_token: ${{ secrets.ALIYUN_TOKEN }}
+        static_list: "ownjs"
+        account_type: user
+        force_update: true
