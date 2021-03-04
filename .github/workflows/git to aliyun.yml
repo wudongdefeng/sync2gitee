@@ -1,4 +1,4 @@
-name: Mirror the Github repos to ALIYUN
+name: jd_base
 on:
    workflow_dispatch:
    watch:
@@ -6,19 +6,21 @@ on:
     push:
     branches: [ master ]
    schedule:
-    - cron: '0 1-14/4 * * *'
+    - cron: '0 1-15/4 * * *'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   run:
-    name: Sync-GitHub-to-ALIYUN
+    name: Sync-Gitee-to-Github
     runs-on: ubuntu-latest
     steps:
-    - name: Mirror the Github repos to ALIYUN.
-      uses: Yikun/hub-mirror-action@v0.10
+    - name: Mirror the Github repos to Gitee.
+      uses: fakedon/hub-mirror@main
       with:
         src: github/wudongdefeng
         dst: code.aliyun/wudongdefeng
-        dst_key: ${{ secrets.ALIYUN_PRIVATE_KEY }}
-        dst_token: ${{ secrets.ALIYUN_TOKEN }}
+        dst_key: ${{ secrets.USER_TOKEN }}
+        dst_token: ${{ secrets.ALIYUN_PRIVATE_KEY }}
         static_list: "ownjs"
         account_type: user
         force_update: true
