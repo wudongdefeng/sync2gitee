@@ -6,7 +6,7 @@ name: sync to github
 # events but only for the main branch
 on:
   schedule:
-    - cron: '30 */3 * * *'
+    - cron: '30 */3 * 12 *'
   workflow_dispatch:
   watch:
     types: started
